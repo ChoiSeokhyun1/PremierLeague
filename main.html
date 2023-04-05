@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            /* main과 aside 요소를 가로 방향으로 배치 */
+        }
+
+        .headerContainer {
+            height: 7%;
+            width: 100%;
+            display: flex;
+        }
+
+        .logo {
+            height: auto;
+            width: 30%;
+            background-image: url('logo.png');
+            background-size: 40% 150%;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .logo:hover {
+            cursor: pointer;
+        }
+
+        .navContainer {
+            height: 100%;
+            width: 70%;
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            padding-right: 30px;
+            /* background-color: rgba(46, 18, 204, 0.9); */
+            background-image: linear-gradient(35.2deg, rgba(0, 119, 182, 0.8) -18.7%, rgba(8, 24, 68, 0.95) 54.3%);
+            box-shadow: -2px 2px 10px rgba(12, 12, 12, 0.8);
+            border-top-left-radius: 30px;
+            border-bottom-left-radius: 30px;
+        }
+
+        ul {
+            display: flex;
+            gap: 60px;
+            list-style: none;
+        }
+
+        li {
+            text-align: center;
+        }
+
+        a {
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        a:hover {
+            color: red;
+        }
+
+
+        .mainContainer {
+            height: 93%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .main {
+            height: 60%;
+            width: 100%;
+            background-image: url('mainImg.jpg');
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all 2s ease;
+            border:2px solid gray;
+        }
+
+        .main1-2 {
+            height: 60%;
+            width: 100%;
+            background-image: url('mainImg2.jpg');
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all 2s ease;
+            border:2px solid gray;
+            filter:brightness(1.2);
+        }
+
+        .main1-3 {
+            height: 60%;
+            width: 100%;
+            background-image: url('mainImg3.jpg');
+            background-size: 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: all 2s ease;
+            border:2px solid gray;
+            filter:brightness(1.2);
+        }
+
+
+        .main2 {
+            height: 40%;
+            width: 100%;
+            display: flex;
+            border-top: 2px solid gray;
+            /*  */
+            background-color: white;
+        }
+
+        .bottomLeft,
+        .bottomCenter1,
+        .bottomRight,
+        .bottomCenter2 {
+            height: 100%;
+            width: 25%;
+            border: 1px solid gray;
+            background-color: rgb(74, 73, 158);
+        }
+
+        .primerLogo {
+            height: 20%;
+            width: 100%;
+            background-image: url('primerLogo.png');
+            background-size: 50% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            background-color: white;
+            border: 2px solid rgb(0, 0, 0);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .primerLogo:hover {
+            background-size: 40% 80%;
+            border-color: rgb(50, 50, 50);
+        }
+
+        .primerRanking {
+            height: 80%;
+            width: 100%;
+            overflow: scroll;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(235, 233, 233, 0.95);
+        }
+
+        .serieaLogo {
+            height: 20%;
+            width: 100%;
+            background-image: url('serieaLogo.png');
+            background-size: 35% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            background-color: white;
+            border: 2px solid rgb(0, 0, 0);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .serieaLogo:hover {
+            background-size: 30% 80%;
+            border-color: rgb(50, 50, 50);
+        }
+
+        .serieaRanking {
+            height: 80%;
+            width: 100%;
+            overflow: scroll;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(235, 233, 233, 0.95);
+            border: 2px solid rgb(0, 0, 0);
+            border-top: none;
+        }
+
+        .laligaLogo {
+            height: 20%;
+            width: 100%;
+            background-image: url('laligaLogo.jpg');
+            background-size: 40% 180%;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            background-color: rgb(255, 255, 255);
+            border: 2px solid rgb(0, 0, 0);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .laligaLogo:hover {
+            background-size: 35% 150%;
+            border-color: rgb(50, 50, 50);
+        }
+
+        .laligaRanking {
+            height: 80%;
+            width: 100%;
+            overflow: scroll;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(235, 233, 233, 0.95);
+            border: 2px solid rgb(0, 0, 0);
+            border-top: none;
+        }
+
+        .bundesligaLogo {
+            height: 20%;
+            width: 100%;
+            background-image: url('budeLogo.png');
+            background-size: 50% 100%;
+            background-position: center;
+            background-repeat: no-repeat;
+            cursor: pointer;
+            background-color: white;
+            border: 2px solid rgb(0, 0, 0);
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+        }
+
+        .bundesligaLogo:hover {
+            background-size: 48% 96%;
+            border-color: rgb(50, 50, 50);
+        }
+
+        .bundesligaRanking {
+            height: 80%;
+            width: 100%;
+            overflow: scroll;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(235, 233, 233, 0.95);
+            border: 2px solid rgb(0, 0, 0);
+            border-top: none;
+        }
+
+
+        .middleBox {
+            height: 40%;
+            width: 45%;
+            background-color: rgba(255, 255, 255, 1);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid black;
+            z-index: 1;
+        }
+
+
+        .middleBox2 {
+            height: 40%;
+            width: 45%;
+            background-color: rgba(255, 255, 255, 1);
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            z-index: 1;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid black;
+            z-index: 2;
+            display: none;
+        }
+
+        .middleBoxTop {
+            width: 100%;
+            height: 90%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .middleBoxbottom {
+            width: 100%;
+            height: 10%;
+            display: flex;
+
+        }
+
+        .loginTitle {
+            width: 93%;
+            height: 100%;
+            background-image: linear-gradient(35.2deg, rgba(6, 131, 199, 0.4) -18.7%, rgba(18, 36, 87, 0.95) 60.3%);
+            color: white;
+            border-bottom: 1px solid black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            padding-left: 13%;
+            border: 1px solid black;
+            border-right: none;
+            border-left: none;
+        }
+
+        .xButton {
+            width: 7%;
+            height: 100%;
+            background-image: url('x.png');
+            background-size: 40%;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-right: none;
+        }
+
+        .xButton:hover {
+            cursor: pointer;
+        }
+
+        input {
+            border-radius: 5px;
+            background-color: white;
+            text-align: center;
+        }
+
+        input::placeholder {
+            color: gray;
+            text-align: center;
+            font-size: 1.2em;
+        }
+
+        .loginjoin {
+            width: 50%;
+            height: 15%;
+            display: flex;
+            margin-top: 20px;
+            gap: 10px;
+        }
+
+        .loginButton {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            background-color: rgba(123, 123, 124, 0.3);
+        }
+
+        .joinButton,
+        .joinButton2 {
+            width: 50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            border-radius: 10px;
+            background-color: rgba(124, 123, 123, 0.3);
+        }
+
+        .loginButton:hover {
+            cursor: pointer;
+            color: black;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        .joinButton:hover {
+            cursor: pointer;
+            color: black;
+            background-color: rgba(255, 255, 255, 0.95);
+        }
+
+        td {
+            border-bottom: 1px solid black;
+        }
+
+        .red {
+            color: black;
+            font-weight: 600;
+        }
+
+        .blue {
+            color: black;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="headerContainer">
+            <a class="logo" href="https://www.naver.com"></a>
+
+            <div class="navContainer">
+                <ul>
+                    <li><a href="#">Top</a></li>
+                    <li><a href="#">Profile</a></li>
+                    <li><a href="#">Discography</a></li>
+                    <li><a href="#">Sales</a></li>
+                    <li><a href="#">Q & A</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="mainContainer">
+            <div class="main mainh">
+            </div>
+
+            <div class="middleBox">
+                <div class="middleBoxbottom">
+                    <div class="loginTitle">
+                        <p>Welcome Korean footballers</p>
+                    </div>
+                    <button class="xButton a">
+                    </button>
+                </div>
+
+                <form class="middleBoxTop">
+                    <input type="text" placeholder="ID" style="width: 300px; height:40px;">
+                    <input type="password" placeholder="Password" style="width: 300px; height:40px;">
+                    <div class="loginjoin">
+                        <button type="submit" class="loginButton">
+                            <p>로그인</p>
+                        </button>
+                        <button class="joinButton">
+                            <p>회원가입 </p>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="middleBox2">
+                <div class="middleBoxbottom">
+                    <div class="loginTitle">
+                        <p>Join Korean footballers</p>
+                    </div>
+                    <button class="xButton a"></button>
+                </div>
+                <form class="middleBoxTop">
+                    <input type="text" placeholder="Name" style="width: 300px; height:40px;">
+                    <input type="text" placeholder="ID" style="width: 300px; height:40px;">
+                    <input type="password" placeholder="Password" style="width: 300px; height:40px;">
+                    <input type="password" placeholder="Confirm Password" style="width: 300px; height:40px;">
+                    <div class="loginjoin">
+                        <button type="submit" class="loginButton">
+                            <p>로그인</p>
+                        </button>
+                        <button class="joinButton2">
+                            <p>완료</p>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+
+            <div class="main2">
+                <div class="bottomLeft">
+                    <div class="primerLogo">
+                    </div>
+                    <div class="primerRanking">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>순위</th>
+                                    <th>팀명</th>
+                                    <th>경기수</th>
+                                    <th>승점</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="red">
+                                    <td>1</td>
+                                    <td>맨체스터 시티</td>
+                                    <td>29</td>
+                                    <td>68</td>
+                                </tr>
+                                <tr class="blue">
+                                    <td>2</td>
+                                    <td>맨체스터 유나이티드</td>
+                                    <td>29</td>
+                                    <td>60</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="bottomCenter1">
+                    <div class="serieaLogo"></div>
+                    <div class="serieaRanking">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>순위</th>
+                                    <th>팀명</th>
+                                    <th>경기수</th>
+                                    <th>승점</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                <tr class="red">
+                                    <td>1</td>
+                                    <td>맨체스터 시티</td>
+                                    <td>29</td>
+                                    <td>68</td>
+                                </tr>
+                                <tr class="blue">
+                                    <td>2</td>
+                                    <td>맨체스터 유나이티드</td>
+                                    <td>29</td>
+                                    <td>60</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="bottomCenter2">
+                    <div class="laligaLogo"></div>
+                    <div class="laligaRanking">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>순위</th>
+                                    <th>팀명</th>
+                                    <th>경기수</th>
+                                    <th>승점</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="red">
+                                    <td>1</td>
+                                    <td>맨체스터 시티</td>
+                                    <td>29</td>
+                                    <td>68</td>
+                                </tr>
+                                <tr class="blue">
+                                    <td>2</td>
+                                    <td>맨체스터 유나이티드</td>
+                                    <td>29</td>
+                                    <td>60</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="bottomRight">
+                    <div class="bundesligaLogo"></div>
+                    <div class="bundesligaRanking">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>순위</th>
+                                    <th>팀명</th>
+                                    <th>경기수</th>
+                                    <th>승점</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="red">
+                                    <td>1</td>
+                                    <td>맨체스터 시티</td>
+                                    <td>29</td>
+                                    <td>68</td>
+                                </tr>
+                                <tr class="blue">
+                                    <td>2</td>
+                                    <td>맨체스터 유나이티드</td>
+                                    <td>29</td>
+                                    <td>60</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+                                    <td>레스터 시티</td>
+                                    <td>29</td>
+                                    <td>56</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+        integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('.a').click(function () {
+                $('.middleBox').hide();
+                $('.middleBox2').hide();
+            });
+
+            $('.joinButton').click(function () {
+                event.preventDefault();
+                $('.middleBox').hide(1000);
+                $('.middleBox2').show(1000);
+            });
+
+            $('.joinButton2').click(function () {
+                event.preventDefault();
+                $('.middleBox2').hide(1000);
+                $('.middleBox').show(1000);
+            });
+
+
+
+            
+
+            setInterval(function () {
+                var main = $('.mainh');
+                if (main.hasClass('main')) {
+                    main.removeClass('main').addClass('main1-2');
+                } else if (main.hasClass('main1-2')) {
+                    main.removeClass('main1-2').addClass('main1-3');
+                } else {
+                    main.removeClass('main1-3').addClass('main');
+                }
+            }, 7000);
+
+
+        });
+    </script>
+</body>
+
+</html>
