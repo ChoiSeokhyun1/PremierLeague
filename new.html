@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        /* main과 aside 요소를 가로 방향으로 배치 */
+    }
+
+    .headerContainer {
+        height: 7%;
+        width: 100%;
+        display: flex;
+    }
+
+    .logo {
+        height: auto;
+        width: 30%;
+        background-image: url('logo.png');
+        background-size: 40% 150%;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .logo:hover {
+        cursor: pointer;
+    }
+
+    .navContainer {
+        height: 100%;
+        width: 70%;
+        display: flex;
+        align-items: center;
+        justify-content: end;
+        padding-right: 30px;
+        /* background-color: rgba(46, 18, 204, 0.9); */
+        background-image: linear-gradient(35.2deg, rgba(0, 119, 182, 0.8) -18.7%, rgba(8, 24, 68, 0.95) 54.3%);
+        box-shadow: -2px 2px 10px rgba(12, 12, 12, 0.8);
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+    }
+
+    ul {
+        display: flex;
+        gap: 60px;
+        list-style: none;
+    }
+
+    li {
+        text-align: center;
+    }
+
+    a {
+        font-weight: bold;
+        text-decoration: none;
+        color: white;
+        font-size:1.15em;
+    }
+
+    a:hover {
+        color: red;
+    }
+
+    .mainContainer {
+            height: 93%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(207, 206, 255, 0.3);
+            border:1px solid white;
+            
+        }
+
+    .main{
+        height:80%;
+        width:90%;
+        background-color: white;
+        display:flex;
+        flex-direction: column;
+        position: relative;
+    }
+
+    .mainPrimer, .mainlaliga, .mainbudes, .mainseria{
+        height:23%;
+        width:100%;
+        background-color: white;
+        display:flex;
+        justify-content: center;
+        border-bottom:3px solid gray;
+    }
+
+    .move{
+        height:8%;
+        width:20%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        color:white;
+        border:1px solid black;
+        position: absolute; /* 자식 요소의 position을 설정 */
+        bottom: 0; /* 하단에 고정 */
+        left: 40%; /* 왼쪽에서부터 0px */
+        border-radius: 50px;
+        cursor: pointer;
+    }
+
+    .move:hover{
+        background-color: white;
+        color:black;
+        transition: 0.4s;
+    }
+
+    .mainPrimer{
+        border-top:5px double gray;
+    }
+
+    .news{
+        font-size: 1.5em;
+        margin-bottom:3.2%;
+        font-weight: bold;
+    }
+
+
+    .mainPrimer:hover, .mainlaliga:hover, .mainbudes:hover, .mainseria:hover{
+        filter: grayscale(100%);
+        transition: 0.3s;
+    }
+
+    .small:hover{
+        transform: scale(0.8);
+        cursor: pointer;
+        
+    }
+
+    .big{
+        width:40%;
+    }
+</style>
+</head>
+<body>
+    <div class="container">
+        <div class="headerContainer">
+            <a class="logo" href="main.html"></a>
+
+            <div class="navContainer">
+                <ul>
+                    <li><a href="main.html">Main</a></li>
+                    <li><a href="new.html">News</a></li>
+                    <li><a href="#">Ranking</a></li>
+                    <li><a href="#">Schedule</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="mainContainer">
+            <p class="news">『 News 』</p>
+            <div class="main">
+                <div class="mainPrimer">
+                    <img class="small big a" src="primerLogo.png">
+                </div>
+                <div class="mainlaliga">
+                    <img class="small big b" src="laligaLogo.jpg">
+                </div>
+                <div class="mainbudes">
+                    <img class="small big c" src="budeLogo.png">
+                </div>
+                <div class="mainseria">
+                    <img class="small big d" src="serieaLogo.png">
+                </div>
+                <div class="move">
+                        <h2>처음으로</h2>
+                </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
+    integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(document).ready(function () {
+
+            $('.a').click(function () {
+                $('.mainlaliga').hide();
+                $('.mainbudes').hide();
+                $('.mainseria').hide();
+            });
+
+            $('.b').click(function () {
+                $('.mainPrimer').hide();
+                $('.mainbudes').hide();
+                $('.mainseria').hide();
+            });
+
+            $('.c').click(function () {
+                $('.mainPrimer').hide();
+                $('.mainlaliga').hide();
+                $('.mainseria').hide();
+            });
+
+            $('.d').click(function () {
+                $('.mainPrimer').hide();
+                $('.mainbudes').hide();
+                $('.mainlaliga').hide();
+            });
+
+            $('h2').click(function() {
+            window.location.href = 'new.html';
+            });     
+
+
+        });
+
+
+    </script>
+</body>
+</html>
