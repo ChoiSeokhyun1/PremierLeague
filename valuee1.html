@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .haha{
+            height:100px;
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+    <div class="haha">눌러눌러</div>
+    <div class="text">0</div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // 페이지를 로드할 때 로컬 스토리지에서 값을 가져옴
+            let currentValue = parseInt(sessionStorage.getItem('textValue1'));
+            if (isNaN(currentValue)) {
+                currentValue = 0;
+            }
+
+            // 클릭 이벤트 처리
+            $(".haha").on("click", function() {
+                let newValue = currentValue + 1;
+                sessionStorage.setItem('textValue1', newValue); // 로컬 스토리지에 값을 저장함
+                $('.text').text(newValue);
+                currentValue = newValue;
+            });
+        });
+    </script>
+</body>
+</html>
