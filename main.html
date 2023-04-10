@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    
+
 
     <style>
         * {
@@ -19,11 +19,11 @@
 
 
         .fixed-col {
-  position: sticky;
-  left: 0;
-  z-index: 1;
-  background-color: #fff;
-}
+            position: sticky;
+            left: 0;
+            z-index: 1;
+            background-color: #fff;
+        }
 
         .container {
             width: 100%;
@@ -665,10 +665,6 @@
                 border-color: rgb(115, 63, 255);
             }
         }
-
-
-
-        
     </style>
 </head>
 
@@ -922,10 +918,10 @@
                         <di class="imgRight">
                             <div class="endEventTitle">
                                 <a href="valuee.html" class="underr" value="0">
-                                    <p value="1" id="my-text0">손흥민 프리미어리그 100골 사진 찍기(종료)</p>
+                                    <p value="5" id="my-text0">손흥민 프리미어리그 100골 사진 찍기(종료)</p>
                                 </a>
                                 <a href="valuee1.html" class="underr" value="0">
-                                    <p value="1" id="my-text1">손흥민 프리미어리그 100골 사진 찍기(종료)</p>
+                                    <p value="5" id="my-text1">손흥민 프리미어리그 100골 사진 찍기(종료)</p>
                                 </a>
                                 <a href="https://www.naver.com" class="underr">손흥민 프리미어리그 통산 100골 사진 찍기(종료)</a>
                                 <a href="https://www.naver.com" class="underr">손흥민 프리미어리그 통산 100골 사진 찍기(종료)</a>
@@ -973,18 +969,19 @@
     </div>
 
 
-   
-   
+
+
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
         integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        
-        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.9.1/jquery.tablesorter.min.js"></script>
 
-        
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.9.1/jquery.tablesorter.min.js"></script>
+
+
     <script>
 
 
@@ -1033,8 +1030,6 @@
 
         // 제이쿼리 시작
         $(document).ready(function () {
-
-            
 
             // (기본, 미로그인시)네비바 내 정보 숨김처리
             $('.secret').hide();
@@ -1202,31 +1197,29 @@
 
 
             for (let i = 0; i <= 10; i++) {
-            $(`#my-text${i}`).on('click', function () {
-                // 스토리지에서 현재 value 값 가져오기
-                let value = parseInt(localStorage.getItem(this.id));
+                $(`#my-text${i}`).on('click', function () {
+                    let value = parseInt(localStorage.getItem(this.id)) || 0;
+                    value++;
+                    localStorage.setItem(this.id, value.toString());
+                });
+            };
 
-                // value 값 1 증가시키기
-                value++;
-
-                // 증가시킨 값을 다시 스토리지에 저장하기
-                localStorage.setItem(this.id, value.toString());
-            });
-        };
-
-            let maxValue = 0;
+            let maxValue = -1;
             for (let i = 0; i < 5; i++) {
-                if (Number(localStorage.getItem(`my-text${i}`)) > Number(localStorage.getItem(`my-text${0}`))) {
+                const value = parseInt(localStorage.getItem(`my-text${i}`)) || 0;
+                if (value > parseInt(localStorage.getItem(`my-text${maxValue}`)) || maxValue === -1) {
                     maxValue = i;
                 }
             }
             $('#my-text' + maxValue).addClass('blueee');
 
 
-  $("#sampleTable").tablesorter();
+
+            $("#sampleTable").tablesorter();
+
         });
 
-        
+
     </script>
 
 
